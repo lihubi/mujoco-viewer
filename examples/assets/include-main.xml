@@ -1,0 +1,9 @@
+<mujoco model="include_example">
+  <include file="parts/visuals.xml"/>
+  <worldbody>
+    <light name="key" pos="2 -4 5"/>
+    <body name="textured_box" pos="0 0 0.2">
+      <geom type="box" size="0.2 0.2 0.2" material="blue"/>
+    </body>
+  </worldbody>
+</mujoco>

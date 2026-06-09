@@ -1,0 +1,7 @@
+<mujoco>
+  <compiler texturedir="../textures"/>
+  <asset>
+    <texture name="checker" type="2d" builtin="checker" width="64" height="64" rgb1="0.1 0.16 0.28" rgb2="0.4 0.65 1"/>
+    <material name="blue" texture="checker" texrepeat="2 2" rgba="1 1 1 1"/>
+  </asset>
+</mujoco>

@@ -1,0 +1,13 @@
+<mujoco model="minimal">
+  <option timestep="0.01"/>
+  <worldbody>
+    <light name="key" pos="2 -3 4" dir="-0.4 0.6 -1"/>
+    <body name="box" pos="0 0 0.25">
+      <joint name="hinge" type="hinge" axis="0 1 0" range="-1.57 1.57"/>
+      <geom type="box" size="0.18 0.12 0.08" rgba="0.25 0.62 1 1"/>
+    </body>
+  </worldbody>
+  <actuator>
+    <position name="hinge_act" joint="hinge" kp="25"/>
+  </actuator>
+</mujoco>
