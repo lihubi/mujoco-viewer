@@ -9,7 +9,7 @@ import {
   MujocoThreeViewer,
   type MujocoBundle,
   type MujocoRuntimeFacadeState,
-} from '@mujoco-web/mujoco-viewer'
+} from '@likang233/mujoco-viewer'
 
 export function MujocoReactViewer({ bundle }: { bundle: MujocoBundle }) {
   const hostRef = useRef<HTMLDivElement>(null)

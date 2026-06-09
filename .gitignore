@@ -4,6 +4,7 @@ dist/
 .turbo/
 .vite/
 coverage/
+.npm-cache/
 npm-debug.log*
 pnpm-debug.log*
 examples/*/dist/

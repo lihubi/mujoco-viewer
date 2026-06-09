@@ -1,4 +1,4 @@
-# @mujoco-web/mujoco-viewer
+# @likang233/mujoco-viewer
 
 Framework-agnostic TypeScript MuJoCo/MJCF viewer for browsers. It uses the official `@mujoco/mujoco` WASM runtime and renders the compiled model with Three.js.
 
@@ -7,7 +7,7 @@ This package does not depend on Vue, Element Plus, React, or any UI framework.
 ## Install
 
 ```sh
-npm install @mujoco-web/mujoco-viewer
+npm install @likang233/mujoco-viewer
 ```
 
 `@mujoco/mujoco` and `three` are regular dependencies, so the package works without extra peer dependency setup. The default loader serves the bundled single-threaded `mujoco.wasm` from `dist/assets/mujoco.wasm`.
@@ -15,7 +15,7 @@ npm install @mujoco-web/mujoco-viewer
 ## Quick Start
 
 ```ts
-import { MujocoThreeViewer, type MujocoBundle } from '@mujoco-web/mujoco-viewer'
+import { MujocoThreeViewer, type MujocoBundle } from '@likang233/mujoco-viewer'
 
 const host = document.querySelector<HTMLDivElement>('#viewer')
 if (!host) throw new Error('Missing viewer host')
@@ -58,7 +58,7 @@ window.addEventListener('beforeunload', () => {
 Use `buildMujocoBundleFromFiles()` when users upload a directory containing `.mjcf` / MuJoCo XML and mesh or texture resources.
 
 ```ts
-import { buildMujocoBundleFromFiles, MujocoThreeViewer, type MujocoFileEntry } from '@mujoco-web/mujoco-viewer'
+import { buildMujocoBundleFromFiles, MujocoThreeViewer, type MujocoFileEntry } from '@likang233/mujoco-viewer'
 
 const entries: MujocoFileEntry[] = Array.from(input.files ?? []).map((file) => ({
   path: file.webkitRelativePath || file.name,
@@ -92,7 +92,7 @@ viewer.setVisualizerOption('contact-point', true)
 For UI state projection, use `MujocoRuntimeFacade`.
 
 ```ts
-import { MujocoRuntimeFacade } from '@mujoco-web/mujoco-viewer'
+import { MujocoRuntimeFacade } from '@likang233/mujoco-viewer'
 
 const facade = new MujocoRuntimeFacade()
 facade.attachRuntime(runtime)
@@ -107,7 +107,7 @@ React does not need a special adapter:
 
 ```tsx
 import { useEffect, useRef } from 'react'
-import { MujocoThreeViewer, type MujocoBundle } from '@mujoco-web/mujoco-viewer'
+import { MujocoThreeViewer, type MujocoBundle } from '@likang233/mujoco-viewer'
 
 export function MujocoCanvas({ bundle }: { bundle: MujocoBundle }) {
   const hostRef = useRef<HTMLDivElement>(null)

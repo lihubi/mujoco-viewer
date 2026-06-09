@@ -1,5 +1,5 @@
 {
-  "name": "@mujoco-web/mujoco-viewer",
+  "name": "@likang233/mujoco-viewer",
   "version": "0.1.0",
   "description": "Framework-agnostic TypeScript MuJoCo/MJCF viewer for browsers.",
   "license": "MIT",
@@ -21,18 +21,26 @@
     "CHANGELOG.md",
     "docs",
     "examples/assets",
-    "examples/vanilla-vite",
-    "examples/react-vite"
+    "examples/vanilla-vite/index.html",
+    "examples/vanilla-vite/package.json",
+    "examples/vanilla-vite/src",
+    "examples/vanilla-vite/tsconfig.json",
+    "examples/vanilla-vite/vite.config.ts",
+    "examples/react-vite/index.html",
+    "examples/react-vite/package.json",
+    "examples/react-vite/src",
+    "examples/react-vite/tsconfig.json",
+    "examples/react-vite/vite.config.ts"
   ],
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mujoco-web/mujoco-viewer.git"
+    "url": "git+https://github.com/lihubi/mujoco-viewer.git"
   },
   "bugs": {
-    "url": "https://github.com/mujoco-web/mujoco-viewer/issues"
+    "url": "https://github.com/lihubi/mujoco-viewer/issues"
   },
-  "homepage": "https://github.com/mujoco-web/mujoco-viewer#readme",
+  "homepage": "https://github.com/lihubi/mujoco-viewer#readme",
   "keywords": [
     "mujoco",
     "mjcf",

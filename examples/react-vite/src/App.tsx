@@ -6,7 +6,7 @@ import {
   type MujocoBundle,
   type MujocoRuntimeFacadeState,
   type MujocoRuntimeHandle,
-} from '@mujoco-web/mujoco-viewer'
+} from '@likang233/mujoco-viewer'
 import './styles.css'
 
 const bundle: MujocoBundle = {

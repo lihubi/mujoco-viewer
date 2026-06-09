@@ -34,7 +34,7 @@ The GitHub publish workflow expects an `NPM_TOKEN` repository secret.
 
 The repository metadata assumes:
 
-- `https://github.com/mujoco-web/mujoco-viewer`
-- npm package `@mujoco-web/mujoco-viewer`
+- `https://github.com/lihubi/mujoco-viewer`
+- npm package `@likang233/mujoco-viewer`
 
 If the GitHub organization changes, update `package.json.repository`, `bugs`, and `homepage`.
