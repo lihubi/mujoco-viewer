@@ -83,10 +83,12 @@ interface MujocoFileEntry {
 
 ## Custom MuJoCo Loader
 
-The default loader uses the package-bundled `dist/assets/mujoco.wasm`. Override it when using a CDN, custom WASM build, or multi-threaded MuJoCo build.
+The default loader uses the package-bundled `dist/assets/mujoco.wasm`. In Vite and similar bundlers, import the WASM as a URL and pass it through `locateFile` so the dev server serves the file with the correct response body and MIME type. Override it the same way when using a CDN, custom WASM build, or multi-threaded MuJoCo build.
 
 ```ts
+import mujocoWasmUrl from '@likang233/mujoco-viewer/assets/mujoco.wasm?url'
+
 const viewer = new MujocoThreeViewer({
-  locateFile: (path) => path.endsWith('mujoco.wasm') ? '/wasm/mujoco.wasm' : path,
+  locateFile: (path) => path.endsWith('mujoco.wasm') ? mujocoWasmUrl : path,
 })
 ```

@@ -7,6 +7,7 @@ import {
   type MujocoRuntimeFacadeState,
   type MujocoRuntimeHandle,
 } from '@likang233/mujoco-viewer'
+import mujocoWasmUrl from '@likang233/mujoco-viewer/assets/mujoco.wasm?url'
 import './styles.css'
 
 const bundle: MujocoBundle = {
@@ -35,7 +36,10 @@ function App() {
   useEffect(() => {
     if (!hostRef.current) return undefined
 
-    const viewer = new MujocoThreeViewer({ autoRun: false })
+    const viewer = new MujocoThreeViewer({
+      autoRun: false,
+      locateFile: (path) => (path.endsWith('mujoco.wasm') ? mujocoWasmUrl : path),
+    })
     const unsubscribe = facade.subscribe(setState)
     viewer.mount(hostRef.current)
     void viewer.loadBundle(bundle).then((runtime) => {

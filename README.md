@@ -16,6 +16,7 @@ npm install @likang233/mujoco-viewer
 
 ```ts
 import { MujocoThreeViewer, type MujocoBundle } from '@likang233/mujoco-viewer'
+import mujocoWasmUrl from '@likang233/mujoco-viewer/assets/mujoco.wasm?url'
 
 const host = document.querySelector<HTMLDivElement>('#viewer')
 if (!host) throw new Error('Missing viewer host')
@@ -37,7 +38,10 @@ const bundle: MujocoBundle = {
 </mujoco>`,
 }
 
-const viewer = new MujocoThreeViewer({ autoRun: true })
+const viewer = new MujocoThreeViewer({
+  autoRun: true,
+  locateFile: (path) => (path.endsWith('mujoco.wasm') ? mujocoWasmUrl : path),
+})
 viewer.mount(host)
 
 const runtime = await viewer.loadBundle(bundle)
@@ -52,6 +56,8 @@ window.addEventListener('beforeunload', () => {
 ```
 
 `mount()` appends the canvas, starts the render loop, binds pointer/wheel/double-click/context-menu events, and observes host resize. Call `dispose()` to clean up all event listeners, the MuJoCo runtime, and Three.js resources.
+
+For Vite, import the bundled WASM with `?url` and pass it through `locateFile`, as shown above. Other bundlers need the same idea: serve `mujoco.wasm` as a real static asset and return its URL from `locateFile`.
 
 ## Loading a Folder
 
@@ -108,13 +114,17 @@ React does not need a special adapter:
 ```tsx
 import { useEffect, useRef } from 'react'
 import { MujocoThreeViewer, type MujocoBundle } from '@likang233/mujoco-viewer'
+import mujocoWasmUrl from '@likang233/mujoco-viewer/assets/mujoco.wasm?url'
 
 export function MujocoCanvas({ bundle }: { bundle: MujocoBundle }) {
   const hostRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!hostRef.current) return
-    const viewer = new MujocoThreeViewer({ autoRun: true })
+    const viewer = new MujocoThreeViewer({
+      autoRun: true,
+      locateFile: (path) => (path.endsWith('mujoco.wasm') ? mujocoWasmUrl : path),
+    })
     viewer.mount(hostRef.current)
     void viewer.loadBundle(bundle)
     return () => viewer.dispose()

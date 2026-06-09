@@ -7,6 +7,7 @@ import {
   type MujocoRuntimeFacadeState,
   type MujocoRuntimeHandle,
 } from '@likang233/mujoco-viewer'
+import mujocoWasmUrl from '@likang233/mujoco-viewer/assets/mujoco.wasm?url'
 import './styles.css'
 
 const inlineBundle: MujocoBundle = {
@@ -39,7 +40,10 @@ const statusEl = statusElement
 const controlsEl = controlsElement
 const optionsEl = optionsElement
 
-const viewer = new MujocoThreeViewer({ autoRun: false })
+const viewer = new MujocoThreeViewer({
+  autoRun: false,
+  locateFile: (path) => (path.endsWith('mujoco.wasm') ? mujocoWasmUrl : path),
+})
 const facade = new MujocoRuntimeFacade()
 let runtime: MujocoRuntimeHandle | null = null
 
